@@ -6,3 +6,48 @@ body {
 h1 {
   color: #FEEFDD;
 }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(0, 0, 0);
+  position: -webkit-sticky; /* Safari */   /* try to get working later */
+  position: sticky;
+  top: 0;
+}
+
+.center-text {
+  /* centers text */
+  text-align: center;
+}
+
+.topnav {
+  /* styles the navbar at the top */
+  background-color: #FAAA8D;
+  overflow: hidden;
+  margin: 0;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #D4E4BC;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #A41623;
+  color: white;
+}

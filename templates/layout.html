@@ -13,6 +13,14 @@
   <title>Classical Eras</title>
 </head>
 <body>
+  <h1>Classical Architectural Eras</h1>
+  <div class="topnav">
+    {{ nav_item('/', 'Home Page') }}
+    {{ nav_item('/greek', 'Greek Page') }}
+    {{ nav_item('/hellenistic', 'Hellenistic Page') }}
+    {{ nav_item('/roman', 'Roman Page') }}
+  </div>
+  
   {% block main %} {% endblock main %}
 </body>
 </html>
