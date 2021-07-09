@@ -19,13 +19,70 @@
         - Rectangular Windows <br>
         - Marble or some other attractive, durable stone
       </p>
+      <h3>Fun facts about the era:</h3>
+      <div class="dropdown">
+        <button class="dropbtn">Facts</button>
+        <div class="dropdown-content">
+          <a onclick="getGreek()">Greek</a>
+          <a onclick="getRoman()">Roman</a>
+          <a onclick="getHellenistic()">Hellenistic</a>
+          <a onclick="getRandom()">Random</a>
+        </div>
+      </div>
+      <div class="content">
+        <div id="dropd"></div>
+      </div>
     </div>
+
     <div class="grid-item item2">
       <h3>Classical Architecture Architects</h3>
-      <p>---coming soon---</p>
-      <h3>Fun facts about the era:</h3>
-      <p>---coming soon---</p>
+      <p>
+        Vitruvius (80BC-15BC) <br>
+          --> Full name: Marcus Vitruvius Pollio <br>
+          --> Roman author, architect, and civil and military engineer <br><br>
+        Sebastiano Serlio (1475-1554) <br>
+          --> Italian Mannerist architect <br>
+          --> Was part of the Italian team building the Palace of Fontainebleau <br>
+          --> Helped canonise the classical orders of architecture  <br><br>
+        Andrea Palladio (1508-1580) <br>
+          --> Italian architect <br>
+          --> Influenced by Roman and Greek architecture, primarily Vitruvius <br><br>
+        Vincenzo Scamozzi (1548-1616) <br>
+          --> Italian architect <br>
+          --> Active mainly in Vicenza and Republic of Venice area in the second half of the 16th century <br><br>
+        Robert Adam (1728-1792) <br>
+          --> Scottish neoclassical architect, interior designer and furniture designer <br>
+          --> Son of William Adam, Scotland’s foremost architect of all time <br><br>
+        John Soane (1753-1837) <br>
+          --> Specialised in Neo-Classical style <br>
+          --> Became a professor of architecture at the Royal Academy <br>
+          --> An official architect to the Office of Works <br>
+          --> Received knighthood in 1831 <br><br>
+        Georges Gromort (1870-1961) <br>
+          --> French architect <br>
+          --> Wrote a book called ‘The elements of classical architecture’ <br><br>
+        Chester Holmes Aldrich (1871-1940) <br>
+          --> American architect <br>
+          --> Director of the American Academy in Rome <br><br>
+        John Russell Pope (1874-1937) <br>
+          --> American architect <br>
+          --> His firm is widely known for designing major public buildings including the National Archives
+            and Records Administration building <br><br>
+        Allan Greenberg (1938-present) <br>
+          --> American architect <br>
+          --> One of the leading classical architects of the twenty-first century - also known as New Classical Architecture <br><br>
+        Léon Krier (1946-present) <br>
+          --> Luxembourgish architect, architectural theorist and urban planner <br>
+          --> Combines an international architecture and planning practice with writing and teaching <br><br>
+        Peter Pennoyer (1957-present) <br>
+          --> Architect and principal of Peter Pennoyer Architects in New York City <br>
+          --> Has an international practice in traditional and classical architecture, or New Classical Architecture <br><br>
+        Duncan G. Stroik (1962-present) <br>
+          --> American architect <br>
+          --> Professor of Architecture at the University of Notre Dame School of Architecture <br>
+      </p>
     </div>
+
     <div class="grid-item item3">
       <h3>Images</h3>
       <img src="/static/images/roman-colosseum.jpeg" alt="Colosseum" width="200px">
@@ -37,11 +94,40 @@
   </div>
 {% endblock main %}
 
-<!--
-  <div class="grid-container">
-    <div class="grid-item item1">1</div>  
-    <div class="grid-item item2">2</div>
-    <div class="grid-item item3">3</div>
-    <div class="grid-item item4">4</div>
-  </div>  
--->
+<!-- anything in javascript on this page -->
+{% block script %}
+<!-- super keeps what is in block script on the layout template -->
+{{ super() }}
+<script>
+  function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+  }
+  // function to get the greek info for what is chosen
+  function getGreek() {
+    fetch(`/greek_api/${getRandomIntInclusive(1,8)}`)
+      .then(response => response.ok ? response.text() : 'error')
+      .then(text => document.getElementById("dropd").innerHTML = text)
+  };
+
+  function getRoman() {
+    fetch(`/roman_api/${getRandomIntInclusive(1,8)}`)
+      .then(response => response.ok ? response.text() : 'error')
+      .then(text => document.getElementById("dropd").innerHTML = text)
+  };
+
+  function getHellenistic() {
+    fetch(`/hellenistic_api/${getRandomIntInclusive(1,8)}`)
+      .then(response => response.ok ? response.text() : 'error')
+      .then(text => document.getElementById("dropd").innerHTML = text)
+  };
+
+  function getRandom() {
+    fetch(`/random_api/${getRandomIntInclusive(1,24)}`)
+      .then(response => response.ok ? response.text() : 'error')
+      .then(text => document.getElementById("dropd").innerHTML = text)
+  };
+</script>
+{% endblock script %}
+

@@ -25,8 +25,6 @@ ul {
   padding: 0;
   overflow: hidden;
   background-color: rgb(0, 0, 0);
-  position: -webkit-sticky; /* Safari */   /* try to get working later */
-  position: sticky;
   top: 0;
 }
 
@@ -69,6 +67,16 @@ ul {
   color: white;
 }
 
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .rest {
+  padding-top: 30px;
+}
+
 .item1 { grid-area: leftmain; }
 .item2 { grid-area: middlemain; }
 .item3 { grid-area: rightmain; }
@@ -79,7 +87,7 @@ ul {
   grid-template-areas:
     'leftmain middlemain rightmain'
     'footer footer footer';
-  grid-template-columns: 33.3% 33.3% 33.3%;
+  grid-template-columns: 42.5% 42.5% 15%;
   justify-content: space-evenly;
   grid-column-gap: 15px;
   padding: 0px;
@@ -87,4 +95,49 @@ ul {
 
 .grid-container > div {
   padding: 20px 0;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #FAAA8D;
+  color: rgb(0, 0, 0);
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #000000;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: rgb(255, 255, 255);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #D4E4BC;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #A41623;
+  color:rgb(255, 255, 255);
 }
