@@ -36,7 +36,6 @@ class Random(db.Model):
 @app.route("/")
 @app.route("/home")
 def home():
-  print(random.randrange(1,10))
   return render_template('home.html', GreekEra=Greek.query.all(), HellenisticEra=Hellenistic.query.all(), RomanEra=Roman.query.all(), RandomEra=Random.query.all())
 
 @app.route("/greek")
@@ -69,7 +68,10 @@ def getHellenistic(id):
 @app.route('/random_api/<int:id>')
 def getRandom(id):
     RandomEra = Random.query.get_or_404(id)
-    return render_template('random_fact.html', RandomEra=RandomEra, GreekEra=Greek.query.all(), HellenisticEra=Hellenistic.query.all(), RomanEra=Roman.query.all())
+    GreekEra = Greek.query.get_or_404(id)
+    RomanEra = Roman.query.get_or_404(id)
+    HellenisticEra = Hellenistic.query.get_or_404(id)
+    return render_template('random_fact.html', RandomEra=RandomEra, GreekEra=GreekEra, RomanEra=RomanEra, HellenisticEra=HellenisticEra)
 
 if __name__ == "__main__":
   app.run(debug=True)

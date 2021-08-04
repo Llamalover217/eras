@@ -124,9 +124,14 @@
   };
 
   function getRandom() {
-    fetch(`/random_api/${getRandomIntInclusive(1,24)}`)
-      .then(response => response.ok ? response.text() : 'error')
-      .then(text => document.getElementById("dropd").innerHTML = text)
+    const random = Math.floor(Math.random() * 3)
+    if (random === 1) {
+      getGreek()
+    } else if (random === 2) {
+      getRoman()
+    } else {
+      getHellenistic()
+    }
   };
 </script>
 {% endblock script %}
