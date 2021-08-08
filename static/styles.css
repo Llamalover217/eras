@@ -81,11 +81,14 @@ ul {
 .item2 { grid-area: middlemain; }
 .item3 { grid-area: rightmain; }
 .item4 { grid-area: footer; }
+.item5 { grid-area: left2; }
+.item6 { grid-area: right2; }
 
 .grid-container {
   display: grid;
   grid-template-areas:
     'leftmain middlemain rightmain'
+    'left2 left2 right2'
     'footer footer footer';
   grid-template-columns: 42.5% 42.5% 15%;
   justify-content: space-evenly;
