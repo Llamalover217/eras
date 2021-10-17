@@ -14,19 +14,19 @@
 </head>
 <body>
   <h1>Classical Architectural Eras</h1>
-  <div id="navbar" class="topnav">
+  <div id="navbar" class="topnav"> 
     {{ nav_item('/', 'HOME', ['/home']) }}
     {{ nav_item('/greek', 'GREEK') }}
     {{ nav_item('/hellenistic', 'HELLENISTIC') }}
     {{ nav_item('/roman', 'ROMAN') }}
-  </div>
-  <div class="rest">
+  </div>  <!-- topnav -->
+  <div class="rest"> <!-- extends to the different pages using main -->
     {% block main %} {% endblock main %}
-  </div>
+  </div>  <!-- rest -->
 
   {% block script %}
-  <script>
-    window.onscroll = function() {stickyNav()};
+  <script> // allows sticky navbar on pages
+    window.onscroll = function() {stickyNav()}; 
     
     var navbar = document.getElementById("navbar");
     var sticky = navbar.offsetTop;
@@ -39,6 +39,6 @@
       }
     }
   </script>
-  {% endblock %}
+  {% endblock script %}
 </body>
 </html>

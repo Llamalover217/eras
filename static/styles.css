@@ -67,6 +67,7 @@ ul {
   color: white;
 }
 
+/* makes the navbar stick to the top when scrolling */
 .sticky {
   position: fixed;
   top: 0;
@@ -92,8 +93,8 @@ ul {
     'footer footer footer';
   grid-template-columns: 42.5% 42.5% 15%;
   justify-content: space-evenly;
-  grid-column-gap: 15px;
-  padding: 0px;
+  grid-column-gap: 20px;
+  padding: 3px;
 }
 
 .grid-container > div {
@@ -104,7 +105,7 @@ ul {
 .dropbtn {
   background-color: #FAAA8D;
   color: rgb(0, 0, 0);
-  padding: 16px;
+  padding: 8px;
   font-size: 16px;
   border: none;
 }
