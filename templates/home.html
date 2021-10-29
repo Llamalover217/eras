@@ -25,7 +25,8 @@
       - Marble or some other attractive, durable stone
     </p>
 
-    <h3>Fun facts about the era:
+    <h3>
+      Fun facts about the era:
       <div class="dropdown">
         <button class="dropbtn">Facts</button>
         <!-- calls the function to get the info for the era that the user chose - or a random fact from from a random era -->
@@ -34,13 +35,17 @@
           <a onclick="getRoman()">Roman</a>
           <a onclick="getHellenistic()">Hellenistic</a>
           <a onclick="getRandom()">Random</a>
-        </div>    <!-- dropdown-content -->
-      </div>  <!-- dropdown -->
+        </div>
+        <!-- dropdown-content -->
+      </div>
+      <!-- dropdown -->
     </h3>
     <div class="content">
       <div id="dropd"></div>
-    </div>  <!-- content -->
-  </div>  <!-- grid-item item1 -->
+    </div>
+    <!-- content -->
+  </div>
+  <!-- grid-item item1 -->
 
   <div class="grid-item item2">
     <h3>Classical Architecture Architects</h3>
@@ -102,7 +107,8 @@
       --> Professor of Architecture at the University of Notre Dame School of
       Architecture <br />
     </p>
-  </div>    <!-- grid-item item2 -->
+  </div>
+  <!-- grid-item item2 -->
 
   <div class="grid-item item3">
     <h3>Images</h3>
@@ -123,8 +129,10 @@
       alt="Hellenistic Stucture"
       width="200px"
     />
-  </div>  <!-- grid-item item3 -->
-</div>  <!-- grid-container -->
+  </div>
+  <!-- grid-item item3 -->
+</div>
+<!-- grid-container -->
 {% endblock main %}
 
 <!-- anything in javascript on this page -->
@@ -144,13 +152,13 @@
       .then((response) => (response.ok ? response.text() : "error"))
       .then((text) => (document.getElementById("dropd").innerHTML = text));
   }
-  // function to get the random Roman fact 
+  // function to get the random Roman fact
   function getRoman() {
     fetch(`/facts/Roman`)
       .then((response) => (response.ok ? response.text() : "error"))
       .then((text) => (document.getElementById("dropd").innerHTML = text));
   }
-  // function to get the random Hellenistic fact 
+  // function to get the random Hellenistic fact
   function getHellenistic() {
     fetch(`/facts/Hellenistic`)
       .then((response) => (response.ok ? response.text() : "error"))
